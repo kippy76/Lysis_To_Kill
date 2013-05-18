@@ -11,5 +11,9 @@ You start the game with 10 clicks. You are in charge of the friendly, synthetica
 LICENSE: GNU GPL 3
 
 Update history:
-1.1 18/05/2013 Improved text layout and minor bug fixes.
-1.0 16/08/2012 Initial version for iGEM 2012 Dundee Team.
+1.1		18/05/2013
+Improved text layout on splash, level up and game over.
+Minor bug fixes.
+
+1.0		16/08/2012
+Initial version for iGEM 2012 Dundee Team.

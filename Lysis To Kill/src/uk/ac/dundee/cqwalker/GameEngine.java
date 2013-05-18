@@ -3,9 +3,7 @@ package uk.ac.dundee.cqwalker;
 import java.util.ArrayList;
 import java.util.ListIterator;
 import java.util.Random;
-
 import uk.ac.dundee.cqwalker.Model.GameState;
-
 import android.app.Activity;
 import android.content.Context;
 import android.content.res.Resources;
@@ -285,7 +283,7 @@ public class GameEngine
 		}
 		for (int thisBlob = 0; thisBlob < allBlobs.size(); thisBlob++)
 		{
-			currentBlob = allBlobs.get(thisBlob);			
+			currentBlob = allBlobs.get(thisBlob);
 			dest.set(currentBlob.x(), currentBlob.y(), currentBlob.x() + model.spriteBlobW() - 1, currentBlob.y() + model.spriteBlobH() - 1);
 			canvas.drawBitmap(bitmapsBlob, null, dest, null);
 		}
@@ -367,12 +365,15 @@ public class GameEngine
 		{
 			// Render game over screen
 			Paint backgroundPaint = new Paint();
-			backgroundPaint.setColor(Color.argb(255, 255, 90, 90));			
+			backgroundPaint.setColor(Color.argb(255, 255, 90, 90));
 			canvas.drawRect(0, 0, canvas.getWidth(), canvas.getHeight(), backgroundPaint);
-			for (int y = 60; y < canvas.getHeight(); y += canvas.getHeight() / 3)
+            String text = "GAME OVER   GAME OVER";
+            float textWidth = colourGameOver.measureText(text);
+            int x = (int)(canvas.getWidth() - textWidth) / 2;
+			for (int y = 60; y < canvas.getHeight(); y += canvas.getHeight() / 5)
 			{
 				colourGameOver.setColor(rainbow[getRandomInt(0, 6)]);
-				canvas.drawText("  GAME OVER   GAME OVER", 1, y, colourGameOver);
+				canvas.drawText(text, x, y, colourGameOver);
 			}
 		}
 	}
@@ -393,12 +394,15 @@ public class GameEngine
 		{
 			// Render level up screen
 			Paint backgroundPaint = new Paint();
-			backgroundPaint.setColor(Color.argb(255, 110, 110, 255));			
+			backgroundPaint.setColor(Color.argb(255, 110, 110, 255));
 			canvas.drawRect(0, 0, canvas.getWidth(), canvas.getHeight(), backgroundPaint);
+            String text = "LEVEL UP  LEVEL UP  LEVEL UP";
+            float textWidth = colourLevelUp.measureText(text);
+            int x = (int)(canvas.getWidth() - textWidth) / 2;
 			for (int y = 20; y < canvas.getHeight(); y += canvas.getHeight() / 15)
 			{
 				colourLevelUp.setColor(rainbow[getRandomInt(0, 6)]);
-				canvas.drawText("  LEVEL UP  LEVEL UP  LEVEL UP", 1, y, colourLevelUp);
+				canvas.drawText(text, x, y, colourLevelUp);
 			}
 		}
 	}
@@ -421,7 +425,7 @@ public class GameEngine
 			Paint backgroundPaint1 = new Paint();
 			Paint backgroundPaint2 = new Paint();
 			backgroundPaint1.setColor(Color.argb(255, 80, 255, 80));
-			backgroundPaint2.setColor(Color.argb(255, 40, 200, 40));			
+			backgroundPaint2.setColor(Color.argb(255, 40, 200, 40));
 			Paint tempPaint = new Paint();
 			tempPaint.setStrokeWidth(2f);
 			tempPaint.setAntiAlias(true);
@@ -430,21 +434,33 @@ public class GameEngine
 			canvas.drawRect(10, 10, canvas.getWidth()-10, canvas.getHeight()-10, backgroundPaint2);
 			int lineHeight = 12 + (int)Math.abs(tempPaint.ascent()) + (int)Math.abs(tempPaint.descent());
 			int y = canvas.getHeight() / 3;
-				tempPaint.setColor(rainbow[getRandomInt(0, 6)]);
-				canvas.drawText("            Lysis To Kill", 1, y, tempPaint);
-				y += lineHeight;
-				y += lineHeight;
-				canvas.drawText("         By Chris Walker", 1, y, tempPaint);
-				y += lineHeight;
-				canvas.drawText("       Dundee University", 1, y, tempPaint);		
-				y += lineHeight;
-				canvas.drawText("        iGEM Team 2012", 1, y, tempPaint);		
+            int x ;
+			tempPaint.setColor(rainbow[getRandomInt(0, 6)]);
+            String text = "Lysis To Kill";
+            float textWidth = tempPaint.measureText(text);
+            x = (int)(canvas.getWidth() - textWidth) / 2;
+			canvas.drawText(text, x, y, tempPaint);
+			y += 2 * lineHeight;
+            text = "By Chris Walker";
+            textWidth = tempPaint.measureText(text);
+            x = (int)(canvas.getWidth() - textWidth) / 2;
+			canvas.drawText(text, x, y, tempPaint);
+			y += lineHeight;
+            text = "Dundee University";
+            textWidth = tempPaint.measureText(text);
+            x = (int)(canvas.getWidth() - textWidth) / 2;
+			canvas.drawText(text, x, y, tempPaint);
+			y += lineHeight;
+            text="iGEM Team 2012";
+            textWidth = tempPaint.measureText(text);
+            x = (int)(canvas.getWidth() - textWidth) / 2;
+			canvas.drawText(text, x, y, tempPaint);
 		}
 	}
-	
+
 	private void blitOverlay(Canvas canvas)
 	{
-		int h, w, b, vs, hs, x1, y1;		
+		int h, w, b, vs, hs, x1, y1;
 		h = model.gridHeight();
 		w = model.gridWidth();
 		b = model.border();
@@ -458,7 +474,7 @@ public class GameEngine
 		for (int col = 0; col <= h; col++)
 		{
 			canvas.drawLine(b + (col * hs), b, b + (col * hs), b + (h * vs), colourGreyLine);
-		}		
+		}
 		// Render score & available blobs
 		x1 = b;
 		y1 = (4 * b) + (vs * h) + (vs/2);
@@ -634,17 +650,17 @@ public class GameEngine
 		model.spacingV(spacing);
 		model.spacingH(spacing);
 	}
-	
+
 	public int spacingV()
 	{
 		return model.spacingV();
-	}	
+	}
 
 	public int spacingH()
 	{
 		return model.spacingH();
 	}
-	
+
 	private int DIPtoPt(float DIP)
 	{
 		float scale = this.context.getResources().getDisplayMetrics().density;
