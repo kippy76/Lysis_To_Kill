@@ -13,7 +13,7 @@ LICENSE: GNU GPL 3
 Update history:
 1.1		18/05/2013
 Improved text layout on splash, level up and game over.
-Minor bug fixes.
+Minor bug fixes. Improved graphics rendering and speed.
 
 1.0		16/08/2012
 Initial version for iGEM 2012 Dundee Team.

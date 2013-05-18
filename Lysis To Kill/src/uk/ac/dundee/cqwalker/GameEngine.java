@@ -436,7 +436,7 @@ public class GameEngine
 			int y = canvas.getHeight() / 3;
             int x ;
 			tempPaint.setColor(rainbow[getRandomInt(0, 6)]);
-            String text = "Lysis To Kill";
+            String text = "Lysis To Kill 1.1";
             float textWidth = tempPaint.measureText(text);
             x = (int)(canvas.getWidth() - textWidth) / 2;
 			canvas.drawText(text, x, y, tempPaint);
