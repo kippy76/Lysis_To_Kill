@@ -24,16 +24,16 @@ public class Model
 	{
 		PLAY, INFO, GAMEOVER, LEVELUP, SPLASH
 	}
-	
+
 	public Model()
 	{
 		gridWidth = gridHeight = 5;
-		spriteCellW = spriteCellH = spriteBlobW = spriteBlobH = 40;
+		spriteCellW = spriteCellH = spriteBlobW = spriteBlobH = 120;
 		border = 10;
 		score = 0;
 		hiscore = 0;
 		scoreIncrement = 10;
-		speed = spriteCellW / 5;
+		speed = spriteCellW / 7;
 		level = 1;
 		levelComplete = false;
 		availableBlobs = 10;
@@ -43,7 +43,7 @@ public class Model
 
 	public void resetGame(boolean fullReset)
 	{
-		levelComplete = false;		
+		levelComplete = false;
 		cells.clear();
 		blobs.clear();
 		initSprites();
@@ -54,7 +54,7 @@ public class Model
 			level = 1;
 		}
 	}
-	
+
 	public void initSprites()
 	{
 		cells = new ArrayList<Cell>();
@@ -120,7 +120,7 @@ public class Model
 		newCell.column(col);
 		newCell.row(row);
 		// State
-		int startState = getRandomInt(0, 3);	
+		int startState = getRandomInt(0, 3);
 		newCell.state(startState);
 		// Friendly status
 		boolean friendly;
@@ -170,129 +170,129 @@ public class Model
 	{
 		this.speed = speed;
 	}
-		
+
 	public int speed()
 	{
 		return this.speed;
 	}
-	
+
 	public void incrementLevel()
 	{
 		this.level++;
 	}
-	
+
 	public void level(int level)
 	{
 		this.level = level;
 	}
-	
+
 	public int level()
 	{
 		return this.level;
-		
+
 	}
-	
+
 	public void incrementScore()
 	{
 		score += scoreIncrement;
 	}
-	
+
 	public int score()
 	{
 		return this.score;
 	}
-	
+
 	public void score(int score)
 	{
 		this.score = score;
 	}
-	
+
 	public void incrementScore(int incrementBy)
 	{
 		this.score += incrementBy;
 	}
-	
+
 	public boolean levelComplete()
 	{
 		return this.levelComplete;
 	}
-	
+
 	public void levelComplete(boolean levelComplete)
 	{
 		this.levelComplete = levelComplete;
 	}
-	
+
 	public int availableBlobs()
 	{
 		return this.availableBlobs;
 	}
-	
+
 	public void availableBlobs(int availableBlobs)
 	{
 		this.availableBlobs = availableBlobs;
 	}
-	
+
 	public void incrementsAvailableBlobs()
 	{
 		this.availableBlobs++;
 	}
-	
+
 	public void decrementAvailableBlobs()
 	{
 		this.availableBlobs--;
 		this.availableBlobs = this.availableBlobs < 0 ? 0 : this.availableBlobs;
 	}
-	
+
 	public GameState GameState()
 	{
 		return this.GAMESTATE;
 	}
-	
+
 	public void GameState(GameState GameState)
 	{
 		this.GAMESTATE = GameState;
 	}
-	
+
 	public int spriteCellW()
 	{
 		return this.spriteCellW;
 	}
-	
+
 	public void spriteCellW(int width)
 	{
 		this.spriteCellW = width;
 	}
-	
+
 	public int spriteCellH()
 	{
 		return this.spriteCellH;
 	}
-	
+
 	public void spriteCellH(int height)
 	{
 		this.spriteCellH = height;
 	}
-	
+
 	public int spriteBlobW()
 	{
 		return this.spriteBlobW;
 	}
-	
+
 	public int spriteBlobH()
 	{
 		return this.spriteBlobH;
 	}
-	
+
 	public void hiscore(int high)
 	{
 		this.hiscore = high;
 	}
-	
+
 	public int hiscore()
 	{
 		return this.hiscore;
-	}	
-	
+	}
+
 	public int getRandomInt(int min, int max)
 	{
 		return ((random.nextInt((max - min) + 1) + min));

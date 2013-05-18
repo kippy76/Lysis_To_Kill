@@ -296,7 +296,7 @@ public class GameEngine
 		canvas.drawRect(0, 0, canvas.getWidth(), canvas.getHeight(), colourInfoBackground);
 		// Text setup
 		ArrayList<String> textLines = new ArrayList<String>();
-		textLines.add("          Lysis To Kill (by Chris Walker)");
+		textLines.add("          Lysis To Kill (Ver: 1.1 by Chris Walker)");
 		textLines.add("");
 		textLines.add("This game was written in connection with the");
 		textLines.add("iGem 2012 competition. The Dundee team");
