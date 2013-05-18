@@ -543,7 +543,8 @@ public class GameEngine
 						model.incrementsAvailableBlobs();
 					}
 				}
-				if ((target.state() == 0) && (target.friendly()))
+				if ((target.state() == 0) && (target.friendly())) // Only friendly cells spawn blobs
+                //if (target.state() == 0)      // Any cells spawn blobs
 				{
 					soundPlayer.playSound("pop");
 					model.createBlob(row, col, (short) 1);

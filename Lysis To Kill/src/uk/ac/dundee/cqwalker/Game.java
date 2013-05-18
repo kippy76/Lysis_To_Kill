@@ -14,11 +14,15 @@ public class Game extends Activity
 		View game = new View(this, this.getApplication().getBaseContext(), null);
 		setContentView(game);
 	}
-	
+
 	public void onStop()
 	{
 		super.onDestroy();
 		this.finish();
 	}
 
+    public void onPause()
+    {
+        super.onPause();
+    }
 }
