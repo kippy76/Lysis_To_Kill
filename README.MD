@@ -6,7 +6,11 @@ The concept of the game was inspired by Splashback which was a Flash game origin
 
 You start the game with 10 clicks. You are in charge of the friendly, synthetically engineered E-coli cells (in green), and each time you click a cell it shrinks and eventually bursts. Your goal is to destroy all the C.diff cells with fCD27 endolysin, which is fired from your E.coli cells whenever they burst. Each level grants you an extra click, and points are awarded for every C.diff cell destroyed. Bonus points are awarded if you finish a level with a clear board.
 
+Chris Walker.
+cwalker.me.uk
+chris@cwalker.me.uk
 
+####################
 
 LICENSE: GNU GPL 3
 
