@@ -199,7 +199,10 @@ public class GameEngine
 			model.GameState(GameState.LEVELUP);
 			soundPlayer.playSound("levelup");
 			model.incrementLevel();
-			model.incrementsAvailableBlobs();
+            for (int extraBlobs = 0; extraBlobs <= model.level()/5; extraBlobs++)
+            {
+                model.incrementsAvailableBlobs();
+            }
 			model.incrementScore(100); // Level Up Bonus
 			boolean allClear = true;
 			for (int cellNo = 0; cellNo < model.getCells().size(); cellNo++)
@@ -544,7 +547,6 @@ public class GameEngine
 					}
 				}
 				if ((target.state() == 0) && (target.friendly())) // Only friendly cells spawn blobs
-                //if (target.state() == 0)      // Any cells spawn blobs
 				{
 					soundPlayer.playSound("pop");
 					model.createBlob(row, col, (short) 1);

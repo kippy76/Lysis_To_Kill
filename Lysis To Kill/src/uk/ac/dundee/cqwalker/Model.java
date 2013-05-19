@@ -33,7 +33,7 @@ public class Model
 		score = 0;
 		hiscore = 0;
 		scoreIncrement = 10;
-		speed = spriteCellW / 7;
+		speed = spriteCellW / 6;
 		level = 1;
 		levelComplete = false;
 		availableBlobs = 10;
@@ -127,7 +127,7 @@ public class Model
 		friendly = startState == 0 ? true : (getRandomInt(0, 100) < 70 ? true : false);
 		newCell.friendly(friendly);
 		// Difficulty tweaks
-		if (getRandomInt(0, 20) <= level)
+		if (getRandomInt(0, 25) <= level)
 		{
 			startState++;
 			startState = startState > 3 ? 3 : startState;

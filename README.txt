@@ -18,6 +18,7 @@ Update history:
 1.1		18/05/2013
 Improved text layout on splash, level up and game over.
 Minor bug fixes. Improved graphics rendering and speed.
+Adjusted gameplay dynamics.
 
 1.0		16/08/2012
 Initial version for iGEM 2012 Dundee Team.
