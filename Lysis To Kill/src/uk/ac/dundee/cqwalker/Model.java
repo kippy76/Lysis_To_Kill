@@ -120,19 +120,42 @@ public class Model
 		newCell.column(col);
 		newCell.row(row);
 		// State
-		int startState = getRandomInt(0, 3);
+        int startState;
+        int stateRand = getRandomInt(0, 100);
+        if (stateRand < 25)
+        {
+            startState = 0;
+        }
+        else
+        {
+            if (stateRand < 60)
+            {
+                startState = 1;
+            }
+            else
+            {
+                if (stateRand < 75)
+                {
+                    startState = 2;
+                }
+                else
+                {
+                    startState = 3;
+                }
+            }
+        }
+        // Difficulty tweaks
+        if (getRandomInt(0, 25) <= level)
+        {
+            startState++;
+            startState = startState > 3 ? 3 : startState;
+        }
 		newCell.state(startState);
 		// Friendly status
 		boolean friendly;
-		friendly = startState == 0 ? true : (getRandomInt(0, 100) < 70 ? true : false);
+        int diffFactor = 50 - (2*level) < 0 ? 0 : 50 - (2*level);   // more enemies in further levels
+		friendly = startState == 0 ? true : (getRandomInt(0, 100) < 25 + diffFactor ? true : false);
 		newCell.friendly(friendly);
-		// Difficulty tweaks
-		if (getRandomInt(0, 25) <= level)
-		{
-			startState++;
-			startState = startState > 3 ? 3 : startState;
-			newCell.state(startState);
-		}
 		// XY setup top left corner
 		int startX = border + (col * spacingH);
 		// now add offset to centre within grid....
