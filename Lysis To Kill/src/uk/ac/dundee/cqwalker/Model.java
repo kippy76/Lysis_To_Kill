@@ -33,7 +33,7 @@ public class Model
 		score = 0;
 		hiscore = 0;
 		scoreIncrement = 10;
-		speed = spriteCellW / 6;
+		speed = spriteCellW / 5;
 		level = 1;
 		levelComplete = false;
 		availableBlobs = 10;
@@ -122,7 +122,7 @@ public class Model
 		// State
         int startState;
         int stateRand = getRandomInt(0, 100);
-        if (stateRand < 25)
+        if (stateRand < 30)
         {
             startState = 0;
         }
@@ -154,7 +154,7 @@ public class Model
 		// Friendly status
 		boolean friendly;
         int diffFactor = 50 - (2*level) < 0 ? 0 : 50 - (2*level);   // more enemies in further levels
-		friendly = startState == 0 ? true : (getRandomInt(0, 100) < 25 + diffFactor ? true : false);
+		friendly = startState == 0 ? true : (getRandomInt(0, 100) < 30 + diffFactor ? true : false);
 		newCell.friendly(friendly);
 		// XY setup top left corner
 		int startX = border + (col * spacingH);

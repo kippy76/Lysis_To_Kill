@@ -216,6 +216,7 @@ public class GameEngine
 			if (allClear)
 			{
 				model.incrementScore(200); // Grid clearance bonus
+                model.incrementsAvailableBlobs(); // extra blob bonus
 			}
 			model.resetGame(false);
 		}
@@ -669,4 +670,5 @@ public class GameEngine
 		float scale = this.context.getResources().getDisplayMetrics().density;
 		return (int) (DIP * scale + 0.5f);
 	}
+
 }
