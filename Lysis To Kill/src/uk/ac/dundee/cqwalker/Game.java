@@ -48,7 +48,6 @@ public class Game extends Activity
     protected void onStop()
     {
         super.onStop();
-        this.finish();
         // The activity is no longer visible (it is now "stopped")
     }
 

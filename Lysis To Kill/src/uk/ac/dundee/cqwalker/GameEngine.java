@@ -601,7 +601,7 @@ public class GameEngine
 	private Cell getCellAtCoords(int x, int y)
 	{
 		Cell occupant = null;
-		int radius = 10;
+		int radius = model.spriteCellW() / 5;
 		boolean found;
 		ArrayList<Cell> allCells = model.getCells();
 		for (int cellIdx = 0; cellIdx < allCells.size(); cellIdx++)
